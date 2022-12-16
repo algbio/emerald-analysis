@@ -1,4 +1,5 @@
 ## Dependencies
+- Emerald   https://github.com/algbio/emerald
 - Diamond   https://github.com/bbuchfink/diamond
 - Muscle    http://www.drive5.com/muscle/
 - ete3      https://github.com/etetoolkit/ete
