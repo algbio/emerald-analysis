@@ -1,0 +1,57 @@
+# download e.g. swiss protein db from: 
+# https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
+#db_file: 'data/alphafold/alphafold.fasta'
+db_file: 'data/uniprot_sprot.fasta'
+# PFAM protein domain database from http://ftp.ebi.ac.uk/pub/databases/Pfam/current_release/Pfam-A.seed.gz
+family_db: 'data/Pfam-A.seed' 
+diamond: './../../diamond-2.0.8/bin/diamond'
+raxml: './../../raxml-ng/bin/raxml-ng'
+muscle: './../../muscle3.8.31_i86linux64'
+hmmer: './../../hmmer'
+safety: './../safety-windows/main'
+mmseqs: "./../../MMseqs2/bin/mmseqs"
+stride: "./../../stride/stride"
+dssp: "./../../dssp/build/mkdssp"
+
+# output directory
+wrkdir: "out"
+datadir: "data"
+tempdir: "temp"
+# Directory of 21 Alphafold proteomics
+pdbdir: '/abga/work/protien-alignment-safety/pdbs/'
+# Minimum identity-% to report an alignment
+min_identity: '20'  # '10' - '100'
+# https://github.com/bbuchfink/diamond/wiki/3.-Command-line-options#sensitivity-modes
+#       id <= 25%    : --ultra-sensitive
+# 25% < id <= 40%    : --very-sensitive
+# 40% < id <= 90%    : --sensitive
+# 90% < id           : --fast
+# 'auto' : automatically chooses the treshhold based on the sensitivity table above
+sensitivity: 'auto'
+# multi-step or mcl or mmseqs. multi-step and mcl uses DIAMOND. mmseqs uses MMseqs2.
+clustering_algorithm: 'multi-step'
+# Clusters smaller/bigger than these limits will not be considered
+cluster_min_size: '5'
+cluster_max_size: '10000'
+# Maximum number of clusters, will be chosen randomly if less than available clusters
+# set to -1 if you want all clusters
+cluster_number: '-1'
+# Parameter to calculate safety windows. Default: 0.75
+# 0.5 < a <= 1.0
+alpha_safe: 0.75
+# delta parameter range [0 (default), Inf)
+delta_safe: 8
+# Reference criterion
+# "--clustering" - default, depends on clustering: mcl or multi-step
+# "--identity" - Highest mean pair-wise identity score
+# "--highlow" - Highest lowest pair-wise identity score
+# "--similarity" - Highest hmmsearch score (i.e. most similar sequence to the MSA of the cluster)
+# "--taxonomy" - Highest node in taxonomic tree, DB should contain taxonomic id as "OX=id"
+ref_criterion: '--clustering'
+# To output clusters uniformly distributed by their range
+uniform: false
+bin_size: 10 # How many clusters to draw from each bin.
+bin_width: 10 # i.e. '100' will sample '--bin_size'-number of clusters every between sizes 0-99, 100-199, ...
+# true if you want to benchmark safety window program with "/usr/bin/time -v command"
+# benchmarks will be in {wrkdir}/{{DB_FILENAME}.{MIN_IDENTITY}.{CLUSTER_ALGO}}/safe.{alpha_safe}/{benchmarks}
+benchmark: false

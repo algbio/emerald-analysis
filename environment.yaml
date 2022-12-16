@@ -1,0 +1,19 @@
+name: pipeline
+channels:
+  - conda-forge
+  - bioconda
+dependencies:
+  - snakemake-minimal==6.5.2
+  - jupyter
+  - pandas
+  - ete3
+  - ipykernel
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jinja2
+  - biopython
+  - panel
+  - jupyter_bokeh
+  - nglview
+# to update "conda env update --name pipeline --file environment.yaml"
