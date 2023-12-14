@@ -1,9 +1,9 @@
 ## EMERALD experiment pipeline
-#### Preprint EMERALD paper
-- Andreas Grigorjew, Artur Gynter, Fernando Dias, Benjamin Buchfink, Hajk-Georg Drost and Alexandru I. Tomescu, "Sensitive inference of alignment-safe intervals from biodiverse protein sequence clusters using EMERALD", bioRxiv 2023.01.11.523286; doi: https://doi.org/10.1101/2023.01.11.523286
+#### EMERALD paper (Genome Biology)
+- Grigorjew, A., Gynter, A., Dias, F.H. et al. Sensitive inference of alignment-safe intervals from biodiverse protein sequence clusters using EMERALD. Genome Biol 24, 168 (2023). https://doi.org/10.1186/s13059-023-03008-6
 
 All datasets, including the 396k protein sequences, DIAMOND-clusters, EMERALD-output and annotation files used in the EMERALD paper can be retrieved from figshare: https://doi.org/10.6084/m9.figshare.21720299.
-File [`motifs.ipynb`](https://github.com/algbio/emerald-analysis/blob/main/motifs.ipynb) contains reporoducible scripts.
+The file [`motifs.ipynb`](https://github.com/algbio/emerald-analysis/blob/main/motifs.ipynb) contains reporoducible scripts. An [erratum](https://github.com/algbio/emerald-analysis/blob/main/emerald_erratum.pdf) to the paper was published.
 
 ## Dependencies
 - Emerald   https://github.com/algbio/emerald
